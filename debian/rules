@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+export UPSTREAM_VERSION = 5.1.1+r8
+export UPSTREAM_TAG = android-5.1.1_r8
+export SOVERSION = 8.0.1
+export DEB_HOST_ARCH_CPU = $(shell dpkg-architecture --query DEB_HOST_ARCH_CPU)
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	make -f debian/libunwind.mk
+	make -f debian/libunwind-ptrace.mk
+
+override_dh_auto_clean:
+	make clean -f debian/libunwind.mk
+	make clean -f debian/libunwind-ptrace.mk
+	dh_auto_clean
+
+get-orig-source:
+	wget https://android.googlesource.com/platform/external/libunwind/+archive/$(UPSTREAM_TAG).tar.gz
+	mv $(UPSTREAM_TAG).tar.gz ../android-platform-external-libunwind_$(UPSTREAM_VERSION).orig.tar.gz

@@ -1,0 +1,31 @@
+Source: android-platform-external-libunwind
+Section: libs
+Priority: optional
+Maintainer: Android tools Maintainer <android-tools-devel@lists.alioth.debian.org>
+Uploaders: Kai-Chung Yan <seamlikok@gmail.com>
+Build-Depends: debhelper (>=9),
+               dh-exec,
+               libbsd-dev,
+Standards-Version: 3.9.6
+Vcs-Git: https://anonscm.debian.org/android-tools/android-platform-external-libunwind.git
+Vcs-Browser: http://anonscm.debian.org/cgit/android-tools/android-platform-external-libunwind.git
+
+Package: android-libunwind
+Section: libs
+Architecture: any-amd64 any-i386 any-arm any-arm64 any-armeb any-mips any-mipsel any-mips64 any-mips64el
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: libunwind for Android
+ This library is the AOSP fork of libunwind.
+ .
+ This library is only used by Android SDK currently.
+
+Package: android-libunwind-dev
+Section: libdevel
+Architecture: any-amd64 any-i386 any-arm any-arm64 any-armeb any-mips any-mipsel any-mips64 any-mips64el
+Depends: libbsd-dev, ${misc:Depends}
+Description: libunwind for Android - Development files
+ This library is the AOSP fork of libunwind.
+ .
+ This library is only used by Android SDK currently.
+ .
+ This package provides the development files.
