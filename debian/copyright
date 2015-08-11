@@ -56,7 +56,7 @@ Copyright: 2008 Google, Inc
            2010 Konstantin Belousov <kib@freebsd.org>
 License: MIT
 
-Files: tests/Gtest-nocalloc.c tests/Gtest-nomalloc.c
+Files: tests/Gtest-nomalloc.c
 Copyright: 2009, 2011 Google, Inc
 License: MIT
 
