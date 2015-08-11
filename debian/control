@@ -7,6 +7,7 @@ Build-Depends: debhelper (>=9),
                dh-exec,
                libbsd-dev,
 Standards-Version: 3.9.6
+Homepage: https://android.googlesource.com/platform/external/libunwind
 Vcs-Git: https://anonscm.debian.org/android-tools/android-platform-external-libunwind.git
 Vcs-Browser: http://anonscm.debian.org/cgit/android-tools/android-platform-external-libunwind.git
 
@@ -21,7 +22,9 @@ Description: libunwind for Android
 Package: android-libunwind-dev
 Section: libdevel
 Architecture: any-amd64 any-i386 any-arm any-arm64 any-armeb any-mips any-mipsel any-mips64 any-mips64el
-Depends: libbsd-dev, ${misc:Depends}
+Depends: android-libunwind (= ${binary:Version}),
+         libbsd-dev,
+         ${misc:Depends}
 Description: libunwind for Android - Development files
  This library is the AOSP fork of libunwind.
  .
