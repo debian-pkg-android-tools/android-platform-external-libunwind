@@ -2,7 +2,8 @@ Source: android-platform-external-libunwind
 Section: libs
 Priority: optional
 Maintainer: Android tools Maintainer <android-tools-devel@lists.alioth.debian.org>
-Uploaders: Kai-Chung Yan <seamlikok@gmail.com>
+Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
+           Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>=9),
                dh-exec,
                libbsd-dev,
