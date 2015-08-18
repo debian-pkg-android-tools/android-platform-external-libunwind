@@ -1,5 +1,6 @@
-android-platform-external-libunwind (5.1.1+r8-1) UNRELEASED; urgency=low
+android-platform-external-libunwind (5.1.1+r8-1) unstable; urgency=low
 
+  [ Kai-Chung Yan ]
   * Initial release (Closes: #795173)
 
- -- Kai-Chung Yan <seamlikok@gmail.com>  Mon, 03 Aug 2015 14:24:10 +0800
+ -- Hans-Christoph Steiner <hans@eds.org>  Tue, 18 Aug 2015 19:08:53 +0200
