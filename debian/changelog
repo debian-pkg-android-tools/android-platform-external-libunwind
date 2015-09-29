@@ -1,3 +1,10 @@
+android-platform-external-libunwind (5.1.1+r8-2) UNRELEASED; urgency=low
+
+  * Fix Vcs-Git address
+  * Architecture limited to Linux kernel
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 29 Sep 2015 22:53:53 +0800
+
 android-platform-external-libunwind (5.1.1+r8-1) unstable; urgency=low
 
   [ Kai-Chung Yan ]
