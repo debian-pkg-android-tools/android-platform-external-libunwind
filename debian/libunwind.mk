@@ -36,9 +36,9 @@ ARM64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/aarch64/$(sources)) \
 MIPS_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/mips/$(sources)) \
                src/mips/getcontext-android.S \
                src/mips/Gis_signal_frame.c \
-               src/mips/Lis_signal_frame.c \
-               src/elf32.c
+               src/mips/Lis_signal_frame.c
 MIPS64_SOURCE = $(MIPS_SOURCES) src/elf64.c
+MIPS_SOURCES += src/elf32.c
 X86_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86/$(sources)) \
               src/x86/getcontext-linux.S \
               src/x86/Gos-linux.c \
