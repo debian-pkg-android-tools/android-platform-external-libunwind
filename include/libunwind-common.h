@@ -40,9 +40,17 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  */
 #define UNW_ARCH_OBJ(fn) UNW_PASTE(UNW_PASTE(UNW_PASTE(_U,UNW_TARGET),_), fn)
 
 #ifdef UNW_LOCAL_ONLY
-# define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_UL,UNW_TARGET),_)
+# ifdef UNW_ADDITIONAL_PREFIX
+#  define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_UUL,UNW_TARGET),_)
+# else
+#  define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_UL,UNW_TARGET),_)
+# endif
 #else /* !UNW_LOCAL_ONLY */
-# define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_U,UNW_TARGET),_)
+# ifdef UNW_ADDITIONAL_PREFIX
+#  define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_UU,UNW_TARGET),_)
+# else
+#  define UNW_PREFIX	UNW_PASTE(UNW_PASTE(_U,UNW_TARGET),_)
+# endif
 #endif /* !UNW_LOCAL_ONLY */
 
 /* Error codes.  The unwind routines return the *negated* values of
@@ -220,6 +228,8 @@ typedef struct unw_map
   {
     unw_word_t start;
     unw_word_t end;
+    unw_word_t offset;
+    unw_word_t load_base;
     char *path;
     int flags;
   }
@@ -228,6 +238,7 @@ unw_map_t;
 
 /* These routines work both for local and remote unwinding.  */
 
+#define unw_local_access_addr_space_init UNW_OBJ(local_access_addr_space_init)
 #define unw_local_addr_space	UNW_OBJ(local_addr_space)
 #define unw_create_addr_space	UNW_OBJ(create_addr_space)
 #define unw_destroy_addr_space	UNW_OBJ(destroy_addr_space)
@@ -252,6 +263,7 @@ unw_map_t;
 #define unw_flush_cache		UNW_ARCH_OBJ(flush_cache)
 #define unw_strerror		UNW_ARCH_OBJ(strerror)
 
+extern void unw_local_access_addr_space_init (unw_addr_space_t);
 extern unw_addr_space_t unw_create_addr_space (unw_accessors_t *, int);
 extern void unw_destroy_addr_space (unw_addr_space_t);
 extern unw_accessors_t *unw_get_accessors (unw_addr_space_t);
