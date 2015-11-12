@@ -1,9 +1,13 @@
-android-platform-external-libunwind (5.1.1+r8-2) UNRELEASED; urgency=low
+android-platform-external-libunwind (6.0.0+r26-1) UNRELEASED; urgency=low
 
+  * New upstream release
   * Fix Vcs-Git address
   * Architecture limited to Linux kernel
+  * d/rules:
+    - Use mk-origtargz for get-orig-source
+    - Automate UPSTREAM_TAG variable
 
- -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 29 Sep 2015 22:53:53 +0800
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Thu, 12 Nov 2015 23:14:57 +0800
 
 android-platform-external-libunwind (5.1.1+r8-1) unstable; urgency=low
 
