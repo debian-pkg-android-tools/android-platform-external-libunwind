@@ -1,6 +1,6 @@
 include debian/detect_arch.mk
 
-CPU_SOURCES = is_fpreg.c \
+ARCH_SOURCES = is_fpreg.c \
                regname.c \
                Gcreate_addr_space.c \
                Gget_proc_info.c \
@@ -22,29 +22,29 @@ CPU_SOURCES = is_fpreg.c \
                Lregs.c \
                Lresume.c \
                Lstep.c
-ARM_SOURCES = $(foreach sources, $(CPU_SOURCES), src/arm/$(sources)) \
+ARM_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/arm/$(sources)) \
               src/arm/getcontext.S \
               src/arm/Gis_signal_frame.c \
               src/arm/Gex_tables.c \
               src/arm/Lis_signal_frame.c \
               src/arm/Lex_tables.c \
               src/elf32.c
-ARM64_SOURCES = $(foreach sources, $(CPU_SOURCES), src/aarch64/$(sources)) \
+ARM64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/aarch64/$(sources)) \
                 src/aarch64/Gis_signal_frame.c \
                 src/aarch64/Lis_signal_frame.c \
                 src/elf64.c
-MIPS_SOURCES = $(foreach sources, $(CPU_SOURCES), src/mips/$(sources)) \
+MIPS_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/mips/$(sources)) \
                src/mips/getcontext-android.S \
                src/mips/Gis_signal_frame.c \
                src/mips/Lis_signal_frame.c \
                src/elf32.c
 MIPS64_SOURCE = $(MIPS_SOURCES) src/elf64.c
-X86_SOURCES = $(foreach sources, $(CPU_SOURCES), src/x86/$(sources)) \
+X86_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86/$(sources)) \
               src/x86/getcontext-linux.S \
               src/x86/Gos-linux.c \
               src/x86/Los-linux.c \
               src/elf32.c
-X86_64_SOURCES = $(foreach sources, $(CPU_SOURCES), src/x86_64/$(sources)) \
+X86_64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86_64/$(sources)) \
                  src/x86_64/getcontext.S \
                  src/x86_64/Gstash_frame.c \
                  src/x86_64/Gtrace.c \
@@ -113,10 +113,22 @@ SOURCES = src/mi/init.c \
           src/dwarf/global.c \
           src/os-common.c \
           src/os-linux.c \
-          src/Los-common.c
-CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
+          src/Los-common.c \
+          src/ptrace/_UPT_accessors.c \
+          src/ptrace/_UPT_access_fpreg.c \
+          src/ptrace/_UPT_access_mem.c \
+          src/ptrace/_UPT_access_reg.c \
+          src/ptrace/_UPT_create.c \
+          src/ptrace/_UPT_destroy.c \
+          src/ptrace/_UPT_find_proc_info.c \
+          src/ptrace/_UPT_get_dyn_info_list_addr.c \
+          src/ptrace/_UPT_put_unwind_info.c \
+          src/ptrace/_UPT_get_proc_name.c \
+          src/ptrace/_UPT_reg_offset.c \
+          src/ptrace/_UPT_resume.c
+CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -U_FORTIFY_SOURCE
 CPPFLAGS += -Iinclude -Isrc
-LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.8 -ldl -lpthread
+LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.8 -lpthread -nostdlib -lc
 
 ifeq ($(CPU), arm)
   SOURCES += $(ARM_SOURCES)

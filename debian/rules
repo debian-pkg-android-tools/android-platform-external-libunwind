@@ -11,11 +11,9 @@ export DEB_HOST_ARCH_CPU = $(shell dpkg-architecture --query DEB_HOST_ARCH_CPU)
 
 override_dh_auto_build:
 	make -f debian/libunwind.mk
-	make -f debian/libunwind-ptrace.mk
 
 override_dh_auto_clean:
 	make clean -f debian/libunwind.mk
-	make clean -f debian/libunwind-ptrace.mk
 	dh_auto_clean
 
 get-orig-source: $(UPSTREAM_TAG).tar.gz
