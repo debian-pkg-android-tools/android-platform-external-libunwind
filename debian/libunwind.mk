@@ -126,7 +126,7 @@ SOURCES = src/mi/init.c \
           src/ptrace/_UPT_get_proc_name.c \
           src/ptrace/_UPT_reg_offset.c \
           src/ptrace/_UPT_resume.c
-CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE -U_FORTIFY_SOURCE
+CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
 CPPFLAGS += -Iinclude -Isrc
 LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so -lpthread -nostdlib -lc
 
