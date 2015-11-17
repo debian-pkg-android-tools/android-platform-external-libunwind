@@ -128,7 +128,7 @@ SOURCES = src/mi/init.c \
           src/ptrace/_UPT_resume.c
 CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
 CPPFLAGS += -Iinclude -Isrc
-LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so -lpthread -nostdlib -lc
+LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.$(ANDROID_SOVERSION) -lpthread -nostdlib -lc
 
 ifeq ($(CPU), arm)
   SOURCES += $(ARM_SOURCES)
@@ -156,7 +156,9 @@ ifeq ($(CPU), x86_64)
 endif
 
 build: $(SOURCES)
-	cc $^ -o $(NAME).so $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+	cc $^ -o $(NAME).so.$(ANDROID_LIBVERSION) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+	ln -s $(NAME).so.$(ANDROID_LIBVERSION) $(NAME).so
+	ln -s $(NAME).so.$(ANDROID_LIBVERSION) $(NAME).so.$(ANDROID_SOVERSION)
 
 clean:
-	rm -f *.so
+	rm -f *.so*

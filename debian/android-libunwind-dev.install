@@ -1,4 +1,5 @@
+*.so                  usr/lib/android
+include/libunwind_i.h usr/include/android/unwind
 include/libunwind-*.h usr/include/android/unwind
 include/libunwind.h   usr/include/android/unwind
-include/libunwind_i.h usr/include/android/unwind
 include/unwind.h      usr/include/android/unwind

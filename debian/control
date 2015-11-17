@@ -5,7 +5,6 @@ Maintainer: Android tools Maintainer <android-tools-devel@lists.alioth.debian.or
 Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
            Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>=9),
-               dh-exec,
                libbsd-dev,
 Standards-Version: 3.9.6
 Homepage: https://android.googlesource.com/platform/external/libunwind
