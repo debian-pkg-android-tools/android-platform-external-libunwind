@@ -22,29 +22,29 @@ ARCH_SOURCES = is_fpreg.c \
                Lregs.c \
                Lresume.c \
                Lstep.c
-ARM_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/arm/$(sources)) \
+arm_SOURCES = $(foreach source, $(ARCH_SOURCES), src/arm/$(source)) \
               src/arm/getcontext.S \
               src/arm/Gis_signal_frame.c \
               src/arm/Gex_tables.c \
               src/arm/Lis_signal_frame.c \
               src/arm/Lex_tables.c \
               src/elf32.c
-ARM64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/aarch64/$(sources)) \
+arm64_SOURCES = $(foreach source, $(ARCH_SOURCES), src/aarch64/$(source)) \
                 src/aarch64/Gis_signal_frame.c \
                 src/aarch64/Lis_signal_frame.c \
                 src/elf64.c
-MIPS_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/mips/$(sources)) \
+mips_SOURCES = $(foreach source, $(ARCH_SOURCES), src/mips/$(source)) \
                src/mips/getcontext-android.S \
                src/mips/Gis_signal_frame.c \
                src/mips/Lis_signal_frame.c
-MIPS64_SOURCE = $(MIPS_SOURCES) src/elf64.c
-MIPS_SOURCES += src/elf32.c
-X86_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86/$(sources)) \
+mips64_SOURCE = $(MIPS_SOURCES) src/elf64.c
+mips_SOURCES += src/elf32.c
+x86_SOURCES = $(foreach source, $(ARCH_SOURCES), src/x86/$(source)) \
               src/x86/getcontext-linux.S \
               src/x86/Gos-linux.c \
               src/x86/Los-linux.c \
               src/elf32.c
-X86_64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86_64/$(sources)) \
+x86_64_SOURCES = $(foreach source, $(ARCH_SOURCES), src/x86_64/$(source)) \
                  src/x86_64/getcontext.S \
                  src/x86_64/Gstash_frame.c \
                  src/x86_64/Gtrace.c \
@@ -54,12 +54,12 @@ X86_64_SOURCES = $(foreach sources, $(ARCH_SOURCES), src/x86_64/$(sources)) \
                  src/x86_64/Los-linux.c \
                  src/x86_64/setcontext.S \
                  src/elf64.c
-ARM_INCLUDES = -Iinclude/tdep-arm
-ARM64_INCLUDES = -Iinclude/tdep-aarch64
-MIPS_INCLUDES = -Iinclude/tdep-mips
-MIPS64_INCLUDES = $(MIPS_INCLUDES)
-X86_INCLUDES = -Iinclude/tdep-x86
-X86_64_INCLUDES = -Iinclude/tdep-x86_64
+arm_INCLUDES = -Iinclude/tdep-arm
+arm64_INCLUDES = -Iinclude/tdep-aarch64
+mips_INCLUDES = -Iinclude/tdep-mips
+mips64_INCLUDES = $(mips_INCLUDES)
+x86_INCLUDES = -Iinclude/tdep-x86
+x86_64_INCLUDES = -Iinclude/tdep-x86_64
 
 NAME = libunwind
 SOURCES = src/mi/init.c \
@@ -126,34 +126,11 @@ SOURCES = src/mi/init.c \
           src/ptrace/_UPT_get_proc_name.c \
           src/ptrace/_UPT_reg_offset.c \
           src/ptrace/_UPT_resume.c
+SOURCES += $($(CPU)_SOURCES)
 CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
 CPPFLAGS += -Iinclude -Isrc
+CPPFLAGS += $($(CPU)_INCLUDES)
 LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.$(ANDROID_SOVERSION) -lpthread -nostdlib -lc
-
-ifeq ($(CPU), arm)
-  SOURCES += $(ARM_SOURCES)
-  CPPFLAGS += $(ARM_INCLUDES)
-endif
-ifeq ($(CPU), arm64)
-  SOURCES += $(ARM64_SOURCES)
-  CPPFLAGS += $(ARM64_INCLUDES)
-endif
-ifeq ($(CPU), mips)
-  SOURCES += $(MIPS_SOURCES)
-  CPPFLAGS += $(MIPS_INCLUDES)
-endif
-ifeq ($(CPU), mips64)
-  SOURCES += $(MIPS64_SOURCES)
-  CPPFLAGS += $(MIPS64_INCLUDES)
-endif
-ifeq ($(CPU), x86)
-  SOURCES += $(X86_SOURCES)
-  CPPFLAGS += $(X86_INCLUDES)
-endif
-ifeq ($(CPU), x86_64)
-  SOURCES += $(X86_64_SOURCES)
-  CPPFLAGS += $(X86_64_INCLUDES)
-endif
 
 build: $(SOURCES)
 	cc $^ -o $(NAME).so.$(ANDROID_LIBVERSION) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
