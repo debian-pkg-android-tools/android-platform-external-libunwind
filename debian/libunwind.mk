@@ -130,12 +130,12 @@ SOURCES += $($(CPU)_SOURCES)
 CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
 CPPFLAGS += -Iinclude -Isrc
 CPPFLAGS += $($(CPU)_INCLUDES)
-LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.$(ANDROID_SOVERSION) -lpthread -nostdlib -lc
+LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc
 
 build: $(SOURCES)
-	cc $^ -o $(NAME).so.$(ANDROID_LIBVERSION) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
+	$(CC) $^ -o $(NAME).so.$(ANDROID_LIBVERSION) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 	ln -s $(NAME).so.$(ANDROID_LIBVERSION) $(NAME).so
-	ln -s $(NAME).so.$(ANDROID_LIBVERSION) $(NAME).so.$(ANDROID_SOVERSION)
+	ln -s $(NAME).so.$(ANDROID_LIBVERSION) $(NAME).so.0
 
 clean:
-	rm -f *.so*
+	$(RM) *.so*

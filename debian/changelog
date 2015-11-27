@@ -1,7 +1,6 @@
 android-platform-external-libunwind (6.0.0+r26-2) UNRELEASED; urgency=medium
 
-  * Add back version info: Lacking it causes dh_shlibdeps warnings "can't
-    extract name and version from library name"
+  * Add version 0 to SONAME
   * No longer need dh-exec
   * Simpify makefile
 
