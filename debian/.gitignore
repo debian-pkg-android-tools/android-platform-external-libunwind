@@ -1,0 +1,6 @@
+.debhelper/
+*.log
+*.substvars
+android-libunwind-dev/
+android-libunwind/
+files
