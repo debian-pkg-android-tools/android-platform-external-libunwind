@@ -1,4 +1,10 @@
-android-platform-external-libunwind (6.0.0+r26-2) unstable; urgency=medium
+android-platform-external-libunwind (6.0.0+r26-3) unstable; urgency=medium
+
+  * upload to unstable
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Sun, 07 Feb 2016 21:48:33 +0100
+
+android-platform-external-libunwind (6.0.0+r26-2) experimental; urgency=medium
 
   * Add version 0 to SONAME
   * No longer need dh-exec
