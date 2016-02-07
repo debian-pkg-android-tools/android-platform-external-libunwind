@@ -1,4 +1,4 @@
-android-platform-external-libunwind (6.0.0+r26-2) experimental; urgency=medium
+android-platform-external-libunwind (6.0.0+r26-2) unstable; urgency=medium
 
   * Add version 0 to SONAME
   * No longer need dh-exec
