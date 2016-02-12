@@ -1,3 +1,9 @@
+android-platform-external-libunwind (6.0.1+r16-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Fri, 12 Feb 2016 14:29:41 +0800
+
 android-platform-external-libunwind (6.0.0+r26-3) unstable; urgency=medium
 
   * upload to unstable
