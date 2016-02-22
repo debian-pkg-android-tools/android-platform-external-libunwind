@@ -13,7 +13,7 @@ Vcs-Git: https://anonscm.debian.org/git/android-tools/android-platform-external-
 Vcs-Browser: https://anonscm.debian.org/cgit/android-tools/android-platform-external-libunwind.git
 
 Package: android-libunwind
-Architecture: amd64 i386 arm arm64 armeb mips mipsel mips64 mips64el
+Architecture: amd64 i386 arm arm64 armeb armel armhf mips mipsel mips64 mips64el
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: libunwind for Android
  This library is the AOSP fork of libunwind.
@@ -22,7 +22,7 @@ Description: libunwind for Android
 
 Package: android-libunwind-dev
 Section: libdevel
-Architecture: amd64 i386 arm arm64 armeb mips mipsel mips64 mips64el
+Architecture: amd64 i386 arm arm64 armeb armel armhf mips mipsel mips64 mips64el
 Depends: android-libunwind (= ${binary:Version}),
          libbsd-dev,
          ${misc:Depends}
