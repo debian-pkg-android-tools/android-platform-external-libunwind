@@ -1,3 +1,10 @@
+android-platform-external-libunwind (6.0.1+r16-2) unstable; urgency=medium
+
+  * add missing Architectures: armel armhf
+  * Standards-Version: 3.9.7 (no change)
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Mon, 22 Feb 2016 08:50:26 +0100
+
 android-platform-external-libunwind (6.0.1+r16-1) unstable; urgency=medium
 
   * New upstream release
