@@ -3,4 +3,5 @@
 *.substvars
 android-libunwind-dev/
 android-libunwind/
+debhelper-build-stamp
 files
