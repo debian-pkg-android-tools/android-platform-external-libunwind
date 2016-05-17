@@ -2,6 +2,7 @@ android-platform-external-libunwind (6.0.1+r16-2) UNRELEASED; urgency=medium
 
   * Install libraries to DEB_HOST_MULTIARCH path
   * Update Standards-Version to 3.9.8 (no change)
+  * d/rules: export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
  -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 17 May 2016 22:18:48 +0800
 
