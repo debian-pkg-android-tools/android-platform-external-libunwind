@@ -1,9 +1,15 @@
 android-platform-external-libunwind (6.0.1+r16-3) unstable; urgency=medium
 
+  * Team upload.
+
   [ Kai-Chung Yan ]
   * Install libraries to DEB_HOST_MULTIARCH path
   * Update Standards-Version to 3.9.8 (no change)
   * d/rules: export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+  [ Markus Koschany ]
+  * Remove non-existent arm architecture from debian/control and add armel and
+    armhf instead.
 
  -- Markus Koschany <apo@debian.org>  Thu, 02 Jun 2016 12:06:35 +0200
 
