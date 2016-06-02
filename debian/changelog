@@ -1,10 +1,11 @@
-android-platform-external-libunwind (6.0.1+r16-3) UNRELEASED; urgency=medium
+android-platform-external-libunwind (6.0.1+r16-3) unstable; urgency=medium
 
+  [ Kai-Chung Yan ]
   * Install libraries to DEB_HOST_MULTIARCH path
   * Update Standards-Version to 3.9.8 (no change)
   * d/rules: export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
- -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 17 May 2016 22:18:48 +0800
+ -- Markus Koschany <apo@debian.org>  Thu, 02 Jun 2016 12:06:35 +0200
 
 android-platform-external-libunwind (6.0.1+r16-2) unstable; urgency=medium
 
