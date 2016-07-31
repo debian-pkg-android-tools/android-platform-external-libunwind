@@ -4,6 +4,8 @@ android-platform-external-libunwind (6.0.1+r55-1) UNRELEASED; urgency=medium
   * New upstream release. (Identical to 6.0.1+r16)
   * debian: Add watch file for usage with uscan
   * debian/watch: recompress using xz
+  
+  [ Kai-Chung Yan ]
   * d/rules: No need to enable all hardening features, pie + bindnow will be
     default in Stretch
 
