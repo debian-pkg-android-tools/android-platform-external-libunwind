@@ -5,7 +5,7 @@ Author: Kai-Chung Yan <seamlikok@gmail.com>
 Last-Update: 2015-08-05
 --- a/include/libunwind_i.h
 +++ b/include/libunwind_i.h
-@@ -68,7 +68,7 @@
+@@ -69,7 +69,7 @@
  #if defined(HAVE_ENDIAN_H)
  # include <endian.h>
  #elif defined(HAVE_SYS_ENDIAN_H)
