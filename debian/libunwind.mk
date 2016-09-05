@@ -127,10 +127,9 @@ SOURCES = src/mi/init.c \
           src/ptrace/_UPT_reg_offset.c \
           src/ptrace/_UPT_resume.c
 SOURCES += $($(CPU)_SOURCES)
-CFLAGS += -fPIC -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
-CPPFLAGS += -Iinclude -Isrc
-CPPFLAGS += $($(CPU)_INCLUDES)
-LDFLAGS += -fPIC -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc
+CFLAGS += -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
+CPPFLAGS += -Iinclude -Isrc $($(CPU)_INCLUDES)
+LDFLAGS += -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc
 
 build: $(SOURCES)
 	$(CC) $^ -o $(NAME).so.0 $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
