@@ -1,8 +1,15 @@
 android-platform-external-libunwind (7.0.0+r1-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * d/control: Improve package description
+  * Build against 7z.so from p7zip-full
+    - Include header files of 7z.so in this package
+    - Install a symlink named "lib7z.so"
+  * Define NDEBUG for C binaries
+  * New user_ptr_regs.patch: Fix FTBFS on arm64
+  * Remove unavailable architectures: arm, armeb & mips64
 
- -- Kai-Chung Yan <seamlikok@gmail.com>  Mon, 05 Sep 2016 19:19:20 +0800
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Fri, 16 Sep 2016 15:16:05 +0800
 
 android-platform-external-libunwind (6.0.1+r55-1) unstable; urgency=medium
 
