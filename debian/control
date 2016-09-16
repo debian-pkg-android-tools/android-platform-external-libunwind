@@ -17,7 +17,10 @@ Package: android-libunwind
 Architecture: amd64 i386 arm64 armeb armel armhf mips mipsel mips64 mips64el
 Depends: p7zip-full, ${shlibs:Depends}, ${misc:Depends}
 Description: libunwind for Android
- This library is the AOSP fork of libunwind.
+ This library is the AOSP fork of libunwind. It is used by libbacktrace.
+ .
+ This package is only available on x86, ARM and MIPS because the AOSP
+ modifications only apply on these platforms.
  .
  This library is only used by Android SDK currently.
 
@@ -28,7 +31,10 @@ Depends: android-libunwind (= ${binary:Version}),
          libbsd-dev,
          ${misc:Depends}
 Description: libunwind for Android - Development files
- This library is the AOSP fork of libunwind.
+ This library is the AOSP fork of libunwind. It is used by libbacktrace.
+ .
+ This package is only available on x86, ARM and MIPS because the AOSP
+ modifications only apply on these platforms.
  .
  This library is only used by Android SDK currently.
  .
