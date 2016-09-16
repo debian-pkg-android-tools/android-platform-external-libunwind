@@ -6,7 +6,8 @@ Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
            Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>=9),
                dh-exec,
-               libbsd-dev
+               libbsd-dev,
+               p7zip-full
 Standards-Version: 3.9.8
 Homepage: https://android.googlesource.com/platform/external/libunwind
 Vcs-Git: https://anonscm.debian.org/git/android-tools/android-platform-external-libunwind.git
@@ -14,7 +15,7 @@ Vcs-Browser: https://anonscm.debian.org/cgit/android-tools/android-platform-exte
 
 Package: android-libunwind
 Architecture: amd64 i386 arm64 armeb armel armhf mips mipsel mips64 mips64el
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: p7zip-full, ${shlibs:Depends}, ${misc:Depends}
 Description: libunwind for Android
  This library is the AOSP fork of libunwind.
  .

@@ -1,7 +1,8 @@
 #!/usr/bin/dh-exec
 
-*.so                  usr/lib/${DEB_HOST_MULTIARCH}/android
+debian/include/*.h    usr/include/android/lzma
 include/libunwind_i.h usr/include/android/unwind
 include/libunwind-*.h usr/include/android/unwind
 include/libunwind.h   usr/include/android/unwind
 include/unwind.h      usr/include/android/unwind
+libunwind.so          usr/lib/${DEB_HOST_MULTIARCH}/android

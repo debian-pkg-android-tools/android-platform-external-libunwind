@@ -1,3 +1,4 @@
 #!/usr/bin/dh-exec
 
 *.so.*   usr/lib/${DEB_HOST_MULTIARCH}/android
+lib7z.so usr/lib/${DEB_HOST_MULTIARCH}/android

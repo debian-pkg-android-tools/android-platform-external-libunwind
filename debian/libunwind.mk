@@ -128,10 +128,12 @@ SOURCES = src/mi/init.c \
           src/ptrace/_UPT_resume.c
 SOURCES += $($(CPU)_SOURCES)
 CFLAGS += -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
-CPPFLAGS += -Iinclude -Isrc $($(CPU)_INCLUDES)
-LDFLAGS += -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc
+CPPFLAGS += -Iinclude -Isrc $($(CPU)_INCLUDES) -Idebian/include
+LDFLAGS += -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc -L. -l7z \
+           -Wl,-rpath=/usr/lib/$(DEB_HOST_MULTIARCH)/android
 
 build: $(SOURCES)
+	ln -s /usr/lib/p7zip/7z.so lib7z.so
 	$(CC) $^ -o $(NAME).so.0 $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 	ln -s $(NAME).so.0 $(NAME).so
 
