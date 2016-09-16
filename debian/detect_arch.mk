@@ -6,9 +6,6 @@ endif
 ifeq ($(DEB_HOST_ARCH), i386)
   CPU = x86
 endif
-ifeq ($(DEB_HOST_ARCH), arm)
-  CPU = arm
-endif
 ifeq ($(DEB_HOST_ARCH), armel)
   CPU = arm
 endif
