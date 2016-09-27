@@ -1,2 +1,1 @@
-bsd_sys_endian.diff
 user_pt_regs.patch
