@@ -6,7 +6,6 @@ Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
            Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>=9),
                dh-exec,
-               libbsd-dev,
                p7zip-full
 Standards-Version: 3.9.8
 Homepage: https://android.googlesource.com/platform/external/libunwind
