@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Android tools Maintainer <android-tools-devel@lists.alioth.debian.org>
 Uploaders: Kai-Chung Yan <seamlikok@gmail.com>,
            Hans-Christoph Steiner <hans@eds.org>
-Build-Depends: debhelper (>=9),
+Build-Depends: debhelper (>= 10),
                dh-exec,
                p7zip-full
 Standards-Version: 3.9.8

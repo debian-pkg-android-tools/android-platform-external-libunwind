@@ -1,11 +1,8 @@
 #!/usr/bin/make -f
 
-include /usr/share/dpkg/pkg-info.mk
-
 export DEB_CFLAGS_MAINT_APPEND = -fPIC
 export DEB_CPPFLAGS_MAINT_APPEND = -DNDEBUG
 export DEB_LDFLAGS_MAINT_APPEND = -fPIC
-UPSTREAM_TAG = android-$(subst +,_,$(DEB_VERSION_UPSTREAM))
 
 %:
 	dh $@
@@ -16,6 +13,9 @@ override_dh_auto_build:
 override_dh_auto_clean:
 	make clean -f debian/libunwind.mk
 	dh_auto_clean
+
+override_dh_autoreconf:
+	# Disabling it
 
 get-orig-source:
 	uscan --download-current-version --force-download --rename
