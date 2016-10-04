@@ -6,6 +6,7 @@ android-platform-external-libunwind (7.0.0+r1-2) experimental; urgency=medium
   * New legacy_built-in_sync_functions.patch for replacing legacy __sync_*
     functions, which are not supported on armel, with __atomic_* ones.
   * Link against libgcc for the __atomic_* built-in functions
+  * Remove libbsd-dev from Build-Depends.
 
   [ Markus Koschany ]
   * Pass --without autoreconf to dh instead of using an override for
