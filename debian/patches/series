@@ -1,1 +1,2 @@
 user_pt_regs.patch
+legacy_built-in_sync_functions.patch
