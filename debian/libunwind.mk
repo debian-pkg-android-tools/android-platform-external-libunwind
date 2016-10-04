@@ -129,8 +129,9 @@ SOURCES = src/mi/init.c \
 SOURCES += $($(CPU)_SOURCES)
 CFLAGS += -DHAVE_CONFIG_H -DNDEBUG -D_GNU_SOURCE
 CPPFLAGS += -Iinclude -Isrc $($(CPU)_INCLUDES) -Idebian/include
-LDFLAGS += -shared -Wl,-soname,$(NAME).so.0 -lpthread -nostdlib -lc -L. -l7z \
-           -Wl,-rpath=/usr/lib/$(DEB_HOST_MULTIARCH)/android
+LDFLAGS += -shared -Wl,-soname,$(NAME).so.0 \
+           -Wl,-rpath=/usr/lib/$(DEB_HOST_MULTIARCH)/android \
+           -lpthread -nostdlib -lc -lgcc -L. -l7z
 
 build: $(SOURCES)
 	ln -s /usr/lib/p7zip/7z.so lib7z.so
