@@ -5,7 +5,7 @@ export DEB_CPPFLAGS_MAINT_APPEND = -DNDEBUG
 export DEB_LDFLAGS_MAINT_APPEND = -fPIC
 
 %:
-	dh $@
+	dh $@ --without autoreconf
 
 override_dh_auto_build:
 	make -f debian/libunwind.mk
@@ -13,9 +13,6 @@ override_dh_auto_build:
 override_dh_auto_clean:
 	make clean -f debian/libunwind.mk
 	dh_auto_clean
-
-override_dh_autoreconf:
-	# Disabling it
 
 get-orig-source:
 	uscan --download-current-version --force-download --rename
