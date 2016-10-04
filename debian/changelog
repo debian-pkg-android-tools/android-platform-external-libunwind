@@ -1,4 +1,4 @@
-android-platform-external-libunwind (7.0.0+r1-2) UNRELEASED; urgency=medium
+android-platform-external-libunwind (7.0.0+r1-2) experimental; urgency=medium
 
   * Update to debhelper 10
   * Fix the source file list on MIPS platforms
@@ -26,7 +26,7 @@ android-platform-external-libunwind (6.0.1+r55-1) unstable; urgency=medium
   [ Chirayu Desai ]
   * New upstream release. (Identical to 6.0.1+r16)
   * debian: Add watch file for usage with uscan
-  
+
   [ Kai-Chung Yan ]
   * d/rules: No need to enable all hardening features, pie + bindnow will be
     default in Stretch
