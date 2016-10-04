@@ -1,3 +1,13 @@
+android-platform-external-libunwind (7.0.0+r1-2) UNRELEASED; urgency=medium
+
+  * Update to debhelper 10
+  * Fix the source file list on MIPS platforms
+  * New legacy_built-in_sync_functions.patch for replacing legacy __sync_*
+    functions, which are not supported on armel, with __atomic_* ones.
+  * Link against libgcc for the __atomic_* built-in functions
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 04 Oct 2016 23:24:05 +0800
+
 android-platform-external-libunwind (7.0.0+r1-1) experimental; urgency=medium
 
   * New upstream release
