@@ -1,3 +1,9 @@
+android-platform-external-libunwind (7.0.0+r1-3) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Kai-Chung Yan <seamlikok@gmail.com>  Tue, 06 Dec 2016 16:28:35 +0800
+
 android-platform-external-libunwind (7.0.0+r1-2) experimental; urgency=medium
 
   [ Kai-Chung Yan ]
