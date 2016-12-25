@@ -1,3 +1,15 @@
+android-platform-external-libunwind (7.0.0+r1-4) unstable; urgency=medium
+ 
+  [ Hans-Christoph Steiner]
+  * Team upload
+
+  [ Daigo Moriwaki ]
+  * Fix off-by-one in dwarf_to_unw_regnum(), applying an upstream patch
+    396b6c7ab737e2bff244d640601c436a26260ca1.
+    (Closes: #849346) (CVE-2015-3239)
+
+ -- Hans-Christoph Steiner <hans@eds.org>  Mon, 26 Dec 2016 00:09:38 +0100
+
 android-platform-external-libunwind (7.0.0+r1-3) unstable; urgency=medium
 
   * Upload to unstable
